@@ -3,14 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>Yeleen — Développeur Full Stack</title>
     <meta
       name="description"
       content="Portfolio de Yeleen : projets, compétences, CV et contact."
     />
-
     <link rel="stylesheet" href="css/style.css" />
+    <a
+      class="lang"
+      href="index.html"
+      lang="fr"
+      aria-label="Passer en français"
+      aria-current="page"
+      >FR</a
+    >
+    <a class="lang" href="en.html" lang="en" aria-label="Switch to English"
+      >EN</a
+    >
+    <a class="lang" href="it.html" lang="it" aria-label="Passa all’italiano"
+      >IT</a
+    >
   </head>
 
   <body>
@@ -24,7 +36,6 @@
 
     <a class="skip-link" href="#main">Aller au contenu</a>
 
-    <!-- HEADER -->
     <header class="header">
       <div class="container header__row">
         <a class="logo" href="#home">Yeleen</a>
@@ -47,9 +58,20 @@
           <a href="#cv">CV</a>
           <a href="#contact">Contact</a>
 
-          <a class="lang" href="index.html" lang="fr">FR</a>
-          <a class="lang" href="en.html" lang="en">EN</a>
-          <a class="lang" href="it.html" lang="it">IT</a>
+          <a
+            class="lang"
+            href="en.html"
+            lang="en"
+            aria-label="Switch to English"
+            >EN</a
+          >
+          <a
+            class="lang"
+            href="it.html"
+            lang="it"
+            aria-label="Passa all’italiano"
+            >IT</a
+          >
         </nav>
       </div>
     </header>
@@ -71,8 +93,8 @@
 
             <p class="lead">
               Je développe des interfaces modernes et des applications Laravel
-              structurées (MVC), avec un focus sur l’accessibilité, le code propre
-              et la performance.
+              structurées (MVC), avec un focus sur l’accessibilité, le code
+              propre et la performance.
             </p>
 
             <div class="hero__badges">
@@ -89,14 +111,100 @@
 
           <aside class="hero__right" aria-label="Photo">
             <div class="hero-photo">
-              <img
-                class="hero-photo__img"
-                src="assets/img/yeleen.JPG"
-                alt="Photo de Yeleen"
-                loading="lazy"
-              />
+              <picture>
+                <source srcset="assets/img/yeleen-face.png" type="image/png" />
+                <source srcset="assets/img/yeleen-face.jpg" type="image/jpeg" />
+
+                <img
+                  class="hero-photo__img"
+                  src="assets/img/yeleen.JPG"
+                  alt="Photo de Yeleen"
+                  loading="lazy"
+                />
+              </picture>
             </div>
           </aside>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="about section--dark" id="about">
+        <div class="container">
+          <h2 class="reveal">À propos de moi</h2>
+          <p class="lead reveal">
+            Développement web moderne, architecture propre, et un focus
+            cloud/DevOps.
+          </p>
+
+          <div class="about__content">
+            <div class="about__text">
+              <p class="reveal">
+                Étudiante en <strong>informatique (BUT 2)</strong>, je me
+                spécialise dans le <strong>développement web</strong> et les
+                technologies <strong>cloud</strong>.
+              </p>
+
+              <p class="reveal">
+                Je développe des
+                <strong>applications web structurées</strong> (architecture MVC,
+                bases de données) et j’explore <strong>Linux</strong>,
+                <strong>DevOps</strong> et des services cloud comme
+                <strong>AWS</strong>.
+              </p>
+
+              <p class="reveal">
+                Mon expérience en <strong>travail d’équipe</strong>,
+                organisation et relation client m’a permis de développer
+                <strong>autonomie</strong>, <strong>rigueur</strong> et
+                <strong>efficacité</strong>.
+              </p>
+
+              <div class="about__chips reveal" aria-label="Mots-clés">
+                <span class="chip">BUT 2</span>
+                <span class="chip">Laravel (MVC)</span>
+                <span class="chip">AWS</span>
+                <span class="chip">Docker</span>
+                <span class="chip">Linux</span>
+                <span class="chip">Accessibilité</span>
+              </div>
+            </div>
+
+            <!-- ✅ Details BELOW (2 columns desktop) -->
+            <div class="about__details">
+              <div class="about__status reveal">
+                <h3>Disponibilité</h3>
+                <p><strong>Alternance dès janvier 2026</strong></p>
+                <p>Développement • Cloud • DevOps</p>
+              </div>
+
+              <div class="about__skills reveal">
+                <h3>Ce que je fais</h3>
+                <ul>
+                  <li>Web : Java • SQL • MVC</li>
+                  <li>Cloud/DevOps : AWS • Docker</li>
+                  <li>Scripting : Bash • Python (bases)</li>
+                </ul>
+              </div>
+
+              <div class="about__tools reveal">
+                <h3>Outils & environnement</h3>
+                <ul>
+                  <li>Versioning : Git • GitLab</li>
+                  <li>Système : Linux</li>
+                  <li>Méthodes : Organisation • Communication</li>
+                </ul>
+              </div>
+
+              <div class="about__goals reveal">
+                <h3>Objectifs</h3>
+                <ul>
+                  <li>Alternance en développement / cloud (DevOps)</li>
+                  <li>Progression sur des projets concrets</li>
+                  <li>Collaboration & bonnes pratiques</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -106,17 +214,66 @@
           <h2>Projets</h2>
           <p class="lead">Clique sur un projet pour l’ouvrir en grand.</p>
 
+          <div class="filters" aria-label="Filtrer les projets">
+            <button
+              class="filter-btn is-active"
+              type="button"
+              data-filter="all"
+              aria-pressed="true"
+            >
+              Tous
+            </button>
+            <button
+              class="filter-btn"
+              type="button"
+              data-filter="frontend"
+              aria-pressed="false"
+            >
+              Frontend
+            </button>
+            <button
+              class="filter-btn"
+              type="button"
+              data-filter="laravel"
+              aria-pressed="false"
+            >
+              Backend
+            </button>
+          </div>
+
           <div class="netflix">
             <div class="netflix__top">
               <h3 class="netflix__label">Projets en vedette</h3>
+
+              <div class="netflix__actions" aria-label="Contrôles du carrousel">
+                <button
+                  class="netflix__btn"
+                  type="button"
+                  data-netflix-prev
+                  aria-label="Précédent"
+                >
+                  ‹
+                </button>
+                <button
+                  class="netflix__btn"
+                  type="button"
+                  data-netflix-next
+                  aria-label="Suivant"
+                >
+                  ›
+                </button>
+              </div>
             </div>
 
-            <div class="netflix__track" tabindex="0">
-              <!-- PROJET 1 -->
-              <figure class="netflix__item" data-tech="frontend">
+            <div
+              class="netflix__track"
+              tabindex="0"
+              aria-label="Carrousel vidéos projets"
+            >
+              <figure class="netflix__item" tabindex="0" data-tech="frontend">
                 <video
                   class="netflix__video"
-                  src="assets/videos/quizz-demo.mp4"
+                  src="assets/video/quizz-demo.mp4"
                   muted
                   autoplay
                   loop
@@ -125,7 +282,7 @@
                 ></video>
 
                 <figcaption class="netflix__caption">
-                  <div class="cap__title">Quiz d’alcool</div>
+                  <div class="cap__title">Quiz d’alcool (Cocktail Guess)</div>
                   <div class="cap__meta">HTML • CSS • JavaScript</div>
                   <a
                     class="cap__link"
@@ -137,11 +294,10 @@
                 </figcaption>
               </figure>
 
-              <!-- PROJET 2 -->
-              <figure class="netflix__item" data-tech="laravel">
+              <figure class="netflix__item" tabindex="0" data-tech="laravel">
                 <video
                   class="netflix__video"
-                  src="assets/videos/cinehub.mp4"
+                  src="assets/video/cinehub.mp4"
                   muted
                   autoplay
                   loop
@@ -151,7 +307,7 @@
 
                 <figcaption class="netflix__caption">
                   <div class="cap__title">CineHub — Laravel (MVC)</div>
-                  <div class="cap__meta">PHP • Laravel • Blade</div>
+                  <div class="cap__meta">PHP • Laravel • Blade • SQLite</div>
                   <a
                     class="cap__link"
                     href="https://github.com/yeleena/Cinehub"
@@ -162,11 +318,10 @@
                 </figcaption>
               </figure>
 
-              <!-- PROJET 3 -->
-              <figure class="netflix__item" data-tech="laravel">
+              <figure class="netflix__item" tabindex="0" data-tech="laravel">
                 <video
                   class="netflix__video"
-                  src="assets/videos/app-web-laravel.mp4"
+                  src="assets/video/app-web-laravel.mp4"
                   muted
                   autoplay
                   loop
@@ -190,13 +345,253 @@
           </div>
         </div>
       </section>
+
+      <!-- SKILLS -->
+      <section id="skills" class="section section--dark reveal">
+        <div class="container container--wide">
+          <h2>Compétences</h2>
+
+          <div class="grid3">
+            <div class="panel">
+              <h3>Frontend</h3>
+
+              <div class="skill-row">
+                <div class="skill-line" style="--w: 90%">
+                  <div class="skill-line__top">
+                    <span>HTML sémantique</span><span>90%</span>
+                  </div>
+                  <div class="skill-meter"><i></i></div>
+                </div>
+
+                <div class="skill-line" style="--w: 85%">
+                  <div class="skill-line__top">
+                    <span>CSS responsive</span><span>85%</span>
+                  </div>
+                  <div class="skill-meter"><i></i></div>
+                </div>
+
+                <div class="skill-line" style="--w: 80%">
+                  <div class="skill-line__top">
+                    <span>JavaScript (DOM, events)</span><span>80%</span>
+                  </div>
+                  <div class="skill-meter"><i></i></div>
+                </div>
+
+                <div class="skill-line" style="--w: 75%">
+                  <div class="skill-line__top">
+                    <span>Accessibilité / UX</span><span>75%</span>
+                  </div>
+                  <div class="skill-meter"><i></i></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel">
+              <h3>Backend</h3>
+
+              <div class="skill-row">
+                <div class="skill-line" style="--w: 85%">
+                  <div class="skill-line__top">
+                    <span>PHP</span><span>85%</span>
+                  </div>
+                  <div class="skill-meter"><i></i></div>
+                </div>
+
+                <div class="skill-line" style="--w: 80%">
+                  <div class="skill-line__top">
+                    <span>Laravel (MVC)</span><span>80%</span>
+                  </div>
+                  <div class="skill-meter"><i></i></div>
+                </div>
+
+                <div class="skill-line" style="--w: 80%">
+                  <div class="skill-line__top">
+                    <span>Blade</span><span>80%</span>
+                  </div>
+                  <div class="skill-meter"><i></i></div>
+                </div>
+
+                <div class="skill-line" style="--w: 70%">
+                  <div class="skill-line__top">
+                    <span>SQLite</span><span>70%</span>
+                  </div>
+                  <div class="skill-meter"><i></i></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel">
+              <h3>Outils</h3>
+
+              <div class="skill-row">
+                <div class="skill-line" style="--w: 80%">
+                  <div class="skill-line__top">
+                    <span>Git / GitHub</span><span>80%</span>
+                  </div>
+                  <div class="skill-meter"><i></i></div>
+                </div>
+
+                <div class="skill-line" style="--w: 75%">
+                  <div class="skill-line__top">
+                    <span>VS Code</span><span>75%</span>
+                  </div>
+                  <div class="skill-meter"><i></i></div>
+                </div>
+
+                <div class="skill-line" style="--w: 70%">
+                  <div class="skill-line__top">
+                    <span>DevTools</span><span>70%</span>
+                  </div>
+                  <div class="skill-meter"><i></i></div>
+                </div>
+
+                <div class="skill-line" style="--w: 70%">
+                  <div class="skill-line__top">
+                    <span>GitHub Pages</span><span>70%</span>
+                  </div>
+                  <div class="skill-meter"><i></i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CV -->
+      <section id="cv" class="section reveal">
+        <div class="container container--wide">
+          <h2>CV</h2>
+
+          <div class="links">
+            <a
+              class="btn"
+              href="assets/cv/Yeleen_Paola_CIVIDINO_CvFR_2026.pdf"
+              target="_blank"
+              rel="noopener"
+              >Voir CV (FR)</a
+            >
+            <a
+              class="btn btn--ghost"
+              href="assets/cv/Yeleen_Paola_CIVIDINO_CvFR_2026.pdf"
+              download
+              >Télécharger (FR)</a
+            >
+
+            <a
+              class="btn"
+              href="assets/cv/Yeleen_Paola_CIVIDINO_CvEN_2026.pdf"
+              target="_blank"
+              rel="noopener"
+              >View CV (EN)</a
+            >
+            <a
+              class="btn btn--ghost"
+              href="assets/cv/Yeleen_Paola_CIVIDINO_CvEN_2026.pdf"
+              download
+              >Download (EN)</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="section section--dark reveal">
+        <div class="container container--wide contact-grid">
+          <div>
+            <h2>Contact</h2>
+
+            <div class="contact__info" aria-label="Liens de contact">
+              <p>
+                <strong>Email</strong><br />
+                <a class="contact-link" href="mailto:yeleen.y.c@gmail.com"
+                  >yeleen.y.c@gmail.com</a
+                >
+              </p>
+
+              <p>
+                <strong>GitHub</strong><br />
+                <a
+                  class="contact-link"
+                  href="https://github.com/yeleena"
+                  target="_blank"
+                  rel="noopener"
+                  >github.com/yeleena</a
+                >
+              </p>
+
+              <p>
+                <strong>LinkedIn</strong><br />
+                <a
+                  class="contact-link"
+                  href="https://linkedin.com/in/yeleen-cividino"
+                  target="_blank"
+                  rel="noopener"
+                  >linkedin.com/in/yeleen-cividino</a
+                >
+              </p>
+            </div>
+          </div>
+
+          <form class="form contact-form" id="contactForm" novalidate>
+            <input name="name" placeholder="Name" required />
+            <input name="email" type="email" placeholder="Email" required />
+            <textarea
+              name="message"
+              rows="5"
+              placeholder="Message"
+              required
+            ></textarea>
+            <button class="btn btn--full" type="submit">Send</button>
+            <p class="form-msg" id="formMsg" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
     </main>
+
+    <button class="to-top" id="toTop" type="button" aria-label="Retour en haut">
+      ↑
+    </button>
 
     <footer class="footer">
       <div class="container">
         <p>© <span id="year"></span> — Yeleen</p>
       </div>
     </footer>
+
+    <!-- Project Modal -->
+    <div class="project-modal" id="projectModal" aria-hidden="true">
+      <div class="project-modal__backdrop" data-close></div>
+
+      <div
+        class="project-modal__panel"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Project preview"
+      >
+        <button
+          class="project-modal__close"
+          type="button"
+          data-close
+          aria-label="Close"
+        >
+          ✕
+        </button>
+
+        <video
+          id="projectModalVideo"
+          class="project-modal__video"
+          controls
+          playsinline
+          disablepictureinpicture
+          controlslist="nodownload noplaybackrate"
+        ></video>
+
+        <div class="project-modal__meta">
+          <p class="project-modal__title" id="projectModalTitle"></p>
+          <p class="project-modal__desc" id="projectModalDesc"></p>
+        </div>
+      </div>
+    </div>
 
     <script src="js/main.js"></script>
   </body>
