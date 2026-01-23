@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
   <head>
     <meta charset="UTF-8" />
@@ -6,23 +6,9 @@
     <title>Yeleen — Sviluppatrice Full Stack</title>
     <meta
       name="description"
-      content="Portfolio di Yeleen: progetti, competenze, CV e contatti."
+      content="Portfolio di Yeleen: progetti, competenze, CV e contatto."
     />
     <link rel="stylesheet" href="css/style.css" />
-    <a class="lang" href="index.html" lang="fr" aria-label="Passer en français"
-      >FR</a
-    >
-    <a class="lang" href="en.html" lang="en" aria-label="Switch to English"
-      >EN</a
-    >
-    <a
-      class="lang"
-      href="it.html"
-      lang="it"
-      aria-label="Passa all’italiano"
-      aria-current="page"
-      >IT</a
-    >
   </head>
 
   <body>
@@ -56,13 +42,13 @@
           <a href="#projects">Progetti</a>
           <a href="#skills">Competenze</a>
           <a href="#cv">CV</a>
-          <a href="#contact">Contatti</a>
+          <a href="#contact">Contatto</a>
 
           <a
             class="lang"
             href="index.html"
             lang="fr"
-            aria-label="Passer en français"
+            aria-label="Passa al francese"
             >FR</a
           >
           <a
@@ -88,17 +74,16 @@
             </h1>
 
             <p class="hero__subtitle" id="heroType">
-              Benvenuto nel mio portfolio
+              Benvenuta/o nel mio portfolio
             </p>
 
             <p class="lead">
               Sviluppo interfacce moderne e applicazioni Laravel strutturate
-              (MVC), con particolare attenzione all’accessibilità, al codice
-              pulito e alle prestazioni.
+              (MVC), con un focus su accessibilità, codice pulito e performance.
             </p>
 
             <div class="hero__badges">
-              <span class="badge">Laurea Triennale (2° anno)</span>
+              <span class="badge">BUT 2 Informatica</span>
               <span class="badge">Web • Laravel</span>
               <span class="badge">Cloud • DevOps</span>
             </div>
@@ -132,34 +117,34 @@
         <div class="container">
           <h2 class="reveal">Chi sono</h2>
           <p class="lead reveal">
-            Sviluppo web moderno, architettura pulita e focus su cloud e DevOps.
+            Sviluppo web moderno, architettura pulita e un focus cloud/DevOps.
           </p>
 
           <div class="about__content">
             <div class="about__text">
               <p class="reveal">
-                Studentessa di <strong>informatica (2° anno)</strong>,
-                specializzata nello <strong>sviluppo web</strong> e nelle
-                <strong>tecnologie cloud</strong>.
+                Studentessa di <strong>informatica (BUT 2)</strong>, mi
+                specializzo nello <strong>sviluppo web</strong> e nelle
+                tecnologie <strong>cloud</strong>.
               </p>
 
               <p class="reveal">
                 Sviluppo
                 <strong>applicazioni web strutturate</strong> (architettura MVC,
-                database) ed esploro <strong>Linux</strong>,
+                basi di dati) ed esploro <strong>Linux</strong>,
                 <strong>DevOps</strong> e servizi cloud come
                 <strong>AWS</strong>.
               </p>
 
               <p class="reveal">
                 La mia esperienza nel <strong>lavoro di squadra</strong>,
-                nell’organizzazione e nel rapporto con i clienti mi ha permesso
-                di sviluppare <strong>autonomia</strong>,
-                <strong>precisione</strong> ed <strong>efficienza</strong>.
+                nell’organizzazione e nella relazione con i clienti mi ha
+                permesso di sviluppare <strong>autonomia</strong>,
+                <strong>rigore</strong> ed <strong>efficienza</strong>.
               </p>
 
               <div class="about__chips reveal" aria-label="Parole chiave">
-                <span class="chip">Laurea Triennale</span>
+                <span class="chip">BUT 2</span>
                 <span class="chip">Laravel (MVC)</span>
                 <span class="chip">AWS</span>
                 <span class="chip">Docker</span>
@@ -168,7 +153,7 @@
               </div>
             </div>
 
-            <!-- DETAILS -->
+            <!-- Details BELOW (2 columns desktop) -->
             <div class="about__details">
               <div class="about__status reveal">
                 <h3>Disponibilità</h3>
@@ -181,7 +166,7 @@
                 <ul>
                   <li>Web: Java • SQL • MVC</li>
                   <li>Cloud/DevOps: AWS • Docker</li>
-                  <li>Scripting: Bash • Python (base)</li>
+                  <li>Scripting: Bash • Python (basi)</li>
                 </ul>
               </div>
 
@@ -198,7 +183,7 @@
                 <h3>Obiettivi</h3>
                 <ul>
                   <li>Apprendistato in sviluppo / cloud (DevOps)</li>
-                  <li>Crescita tramite progetti concreti</li>
+                  <li>Progredire su progetti concreti</li>
                   <li>Collaborazione & buone pratiche</li>
                 </ul>
               </div>
@@ -212,7 +197,7 @@
         <div class="container container--wide">
           <h2>Progetti</h2>
           <p class="lead">
-            Clicca su un progetto per visualizzarlo a schermo intero.
+            Clicca su un progetto per aprirlo a schermo intero.
           </p>
 
           <div class="filters" aria-label="Filtra i progetti">
@@ -224,6 +209,7 @@
             >
               Tutti
             </button>
+
             <button
               class="filter-btn"
               type="button"
@@ -232,6 +218,7 @@
             >
               Frontend
             </button>
+
             <button
               class="filter-btn"
               type="button"
@@ -239,6 +226,24 @@
               aria-pressed="false"
             >
               Backend
+            </button>
+
+            <button
+              class="filter-btn"
+              type="button"
+              data-filter="laravel"
+              aria-pressed="false"
+            >
+              Rete
+            </button>
+
+            <button
+              class="filter-btn"
+              type="button"
+              data-filter="laravel"
+              aria-pressed="false"
+            >
+              SQL
             </button>
           </div>
 
@@ -275,18 +280,15 @@
               aria-label="Carosello video progetti"
             >
               <figure class="netflix__item" tabindex="0" data-tech="frontend">
-                <video
+                <iframe
                   class="netflix__video"
-                  src="assets/video/quizz-demo.mp4"
-                  muted
-                  autoplay
-                  loop
-                  playsinline
-                  preload="metadata"
-                ></video>
+                  src="https://www.youtube.com/embed/vIYNVauNrvQ"
+                  frameborder="0"
+                  allowfullscreen
+                ></iframe>
 
                 <figcaption class="netflix__caption">
-                  <div class="cap__title">Quiz alcolici (Cocktail Guess)</div>
+                  <div class="cap__title">Quiz sull’alcol (Cocktail Guess)</div>
                   <div class="cap__meta">HTML • CSS • JavaScript</div>
                   <a
                     class="cap__link"
@@ -299,15 +301,12 @@
               </figure>
 
               <figure class="netflix__item" tabindex="0" data-tech="laravel">
-                <video
+                <iframe
                   class="netflix__video"
-                  src="assets/video/cinehub.mp4"
-                  muted
-                  autoplay
-                  loop
-                  playsinline
-                  preload="metadata"
-                ></video>
+                  src="https://www.youtube.com/embed/RUsx0i2UGxU"
+                  frameborder="0"
+                  allowfullscreen
+                ></iframe>
 
                 <figcaption class="netflix__caption">
                   <div class="cap__title">CineHub — Laravel (MVC)</div>
@@ -323,15 +322,12 @@
               </figure>
 
               <figure class="netflix__item" tabindex="0" data-tech="laravel">
-                <video
+                <iframe
                   class="netflix__video"
-                  src="assets/video/app-web-laravel.mp4"
-                  muted
-                  autoplay
-                  loop
-                  playsinline
-                  preload="metadata"
-                ></video>
+                  src="https://www.youtube.com/embed/_LbCqe5As7g"
+                  frameborder="0"
+                  allowfullscreen
+                ></iframe>
 
                 <figcaption class="netflix__caption">
                   <div class="cap__title">Laravel — Code Marathon 2025</div>
@@ -349,6 +345,7 @@
           </div>
         </div>
       </section>
+
       <!-- SKILLS -->
       <section id="skills" class="section section--dark reveal">
         <div class="container container--wide">
@@ -463,29 +460,15 @@
       <!-- CV -->
       <section id="cv" class="section reveal">
         <div class="container container--wide">
-          <h2>Curriculum</h2>
+          <h2>CV</h2>
 
           <div class="links">
-            <a
-              class="btn"
-              href="assets/cv/Yeleen_Paola_CIVIDINO_CvFR_2026.pdf"
-              target="_blank"
-              rel="noopener"
-              >Visualizza CV (FR)</a
-            >
-            <a
-              class="btn btn--ghost"
-              href="assets/cv/Yeleen_Paola_CIVIDINO_CvFR_2026.pdf"
-              download
-              >Scarica (FR)</a
-            >
-
             <a
               class="btn"
               href="assets/cv/Yeleen_Paola_CIVIDINO_CvEN_2026.pdf"
               target="_blank"
               rel="noopener"
-              >Visualizza CV (EN)</a
+              >Vedi CV (EN)</a
             >
             <a
               class="btn btn--ghost"
@@ -501,7 +484,7 @@
       <section id="contact" class="section section--dark reveal">
         <div class="container container--wide contact-grid">
           <div>
-            <h2>Contatti</h2>
+            <h2>Contatto</h2>
 
             <div class="contact__info" aria-label="Link di contatto">
               <p>
@@ -580,14 +563,33 @@
           ✕
         </button>
 
-        <video
+        <!-- Modal arrows -->
+        <button
+          class="project-modal__nav project-modal__nav--prev"
+          type="button"
+          data-modal-prev
+          aria-label="Video precedente"
+        >
+          ‹
+        </button>
+
+        <button
+          class="project-modal__nav project-modal__nav--next"
+          type="button"
+          data-modal-next
+          aria-label="Video successivo"
+        >
+          ›
+        </button>
+
+        <iframe
           id="projectModalVideo"
           class="project-modal__video"
-          controls
-          playsinline
-          disablepictureinpicture
-          controlslist="nodownload noplaybackrate"
-        ></video>
+          src=""
+          frameborder="0"
+          allow="autoplay; encrypted-media"
+          allowfullscreen
+        ></iframe>
 
         <div class="project-modal__meta">
           <p class="project-modal__title" id="projectModalTitle"></p>
