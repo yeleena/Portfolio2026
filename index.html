@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
@@ -9,20 +9,6 @@
       content="Portfolio de Yeleen : projets, compétences, CV et contact."
     />
     <link rel="stylesheet" href="css/style.css" />
-    <a
-      class="lang"
-      href="index.html"
-      lang="fr"
-      aria-label="Passer en français"
-      aria-current="page"
-      >FR</a
-    >
-    <a class="lang" href="en.html" lang="en" aria-label="Switch to English"
-      >EN</a
-    >
-    <a class="lang" href="it.html" lang="it" aria-label="Passa all’italiano"
-      >IT</a
-    >
   </head>
 
   <body>
@@ -169,7 +155,7 @@
               </div>
             </div>
 
-            <!-- ✅ Details BELOW (2 columns desktop) -->
+            <!-- Details BELOW (2 columns desktop) -->
             <div class="about__details">
               <div class="about__status reveal">
                 <h3>Disponibilité</h3>
@@ -223,6 +209,7 @@
             >
               Tous
             </button>
+
             <button
               class="filter-btn"
               type="button"
@@ -231,6 +218,7 @@
             >
               Frontend
             </button>
+
             <button
               class="filter-btn"
               type="button"
@@ -238,6 +226,24 @@
               aria-pressed="false"
             >
               Backend
+            </button>
+
+            <button
+              class="filter-btn"
+              type="button"
+              data-filter="laravel"
+              aria-pressed="false"
+            >
+              Réseau
+            </button>
+
+            <button
+              class="filter-btn"
+              type="button"
+              data-filter="laravel"
+              aria-pressed="false"
+            >
+              SQL
             </button>
           </div>
 
@@ -271,15 +277,12 @@
               aria-label="Carrousel vidéos projets"
             >
               <figure class="netflix__item" tabindex="0" data-tech="frontend">
-                <video
+                <iframe
                   class="netflix__video"
-                  src="assets/video/quizz-demo.mp4"
-                  muted
-                  autoplay
-                  loop
-                  playsinline
-                  preload="metadata"
-                ></video>
+                  src="https://www.youtube.com/embed/vIYNVauNrvQ"
+                  frameborder="0"
+                  allowfullscreen
+                ></iframe>
 
                 <figcaption class="netflix__caption">
                   <div class="cap__title">Quiz d’alcool (Cocktail Guess)</div>
@@ -295,15 +298,12 @@
               </figure>
 
               <figure class="netflix__item" tabindex="0" data-tech="laravel">
-                <video
+                <iframe
                   class="netflix__video"
-                  src="assets/video/cinehub.mp4"
-                  muted
-                  autoplay
-                  loop
-                  playsinline
-                  preload="metadata"
-                ></video>
+                  src="https://www.youtube.com/embed/RUsx0i2UGxU"
+                  frameborder="0"
+                  allowfullscreen
+                ></iframe>
 
                 <figcaption class="netflix__caption">
                   <div class="cap__title">CineHub — Laravel (MVC)</div>
@@ -319,15 +319,12 @@
               </figure>
 
               <figure class="netflix__item" tabindex="0" data-tech="laravel">
-                <video
+                <iframe
                   class="netflix__video"
-                  src="assets/video/app-web-laravel.mp4"
-                  muted
-                  autoplay
-                  loop
-                  playsinline
-                  preload="metadata"
-                ></video>
+                  src="https://www.youtube.com/embed/_LbCqe5As7g"
+                  frameborder="0"
+                  allowfullscreen
+                ></iframe>
 
                 <figcaption class="netflix__caption">
                   <div class="cap__title">Laravel — Code Marathon 2025</div>
@@ -476,20 +473,6 @@
               download
               >Télécharger (FR)</a
             >
-
-            <a
-              class="btn"
-              href="assets/cv/Yeleen_Paola_CIVIDINO_CvEN_2026.pdf"
-              target="_blank"
-              rel="noopener"
-              >View CV (EN)</a
-            >
-            <a
-              class="btn btn--ghost"
-              href="assets/cv/Yeleen_Paola_CIVIDINO_CvEN_2026.pdf"
-              download
-              >Download (EN)</a
-            >
           </div>
         </div>
       </section>
@@ -533,7 +516,7 @@
           </div>
 
           <form class="form contact-form" id="contactForm" novalidate>
-            <input name="name" placeholder="Name" required />
+            <input name="name" placeholder="Nom" required />
             <input name="email" type="email" placeholder="Email" required />
             <textarea
               name="message"
@@ -577,14 +560,33 @@
           ✕
         </button>
 
-        <video
+        <!-- Modal arrows -->
+        <button
+          class="project-modal__nav project-modal__nav--prev"
+          type="button"
+          data-modal-prev
+          aria-label="Previous video"
+        >
+          ‹
+        </button>
+
+        <button
+          class="project-modal__nav project-modal__nav--next"
+          type="button"
+          data-modal-next
+          aria-label="Next video"
+        >
+          ›
+        </button>
+
+        <iframe
           id="projectModalVideo"
           class="project-modal__video"
-          controls
-          playsinline
-          disablepictureinpicture
-          controlslist="nodownload noplaybackrate"
-        ></video>
+          src=""
+          frameborder="0"
+          allow="autoplay; encrypted-media"
+          allowfullscreen
+        ></iframe>
 
         <div class="project-modal__meta">
           <p class="project-modal__title" id="projectModalTitle"></p>
