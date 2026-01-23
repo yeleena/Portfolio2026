@@ -27,7 +27,13 @@ html {
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
@@ -40,7 +46,8 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: radial-gradient(
+  background:
+    radial-gradient(
       circle at 20% 30%,
       rgba(255, 46, 166, 0.08),
       transparent 50%
@@ -289,7 +296,8 @@ h3 {
   content: "";
   position: absolute;
   inset: -50%;
-  background: radial-gradient(
+  background:
+    radial-gradient(
       circle at 30% 20%,
       rgba(255, 46, 166, 0.15),
       transparent 40%
@@ -470,7 +478,8 @@ h3 {
   position: absolute;
   inset: -18%;
   border-radius: 999px;
-  background: radial-gradient(
+  background:
+    radial-gradient(
       circle at 30% 30%,
       rgba(255, 46, 166, 0.35),
       transparent 60%
@@ -568,7 +577,9 @@ h3 {
   border: 1px solid rgba(255, 255, 255, 0.14);
   background: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(10px);
-  transition: transform 0.25s ease, border-color 0.25s ease,
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
     box-shadow 0.25s ease;
 }
 .chip:hover {
@@ -593,8 +604,10 @@ h3 {
   backdrop-filter: blur(12px);
   position: relative;
   overflow: hidden;
-  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.35s ease;
+  transition:
+    transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.35s ease;
 }
 
 .about__details > div::before {
@@ -723,7 +736,9 @@ h3 {
 .netflix__item:hover {
   border-color: var(--pink);
   transform: perspective(1000px) rotateY(8deg) translateY(-10px) scale(1.02);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(255, 46, 166, 0.3);
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.4),
+    0 0 40px rgba(255, 46, 166, 0.3);
 }
 
 .netflix__video {
@@ -869,7 +884,10 @@ h3 {
   border-radius: 14px;
   font-weight: 800;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
   backdrop-filter: blur(10px);
 }
 
@@ -1002,6 +1020,7 @@ body.modal-open {
   inset: 0;
   background: rgba(0, 0, 0, 0.55);
   backdrop-filter: blur(8px);
+  z-index: 0;
 }
 
 .project-modal__panel {
@@ -1013,6 +1032,7 @@ body.modal-open {
   background: rgba(20, 20, 27, 0.92);
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
   overflow: hidden;
+  z-index: 1;
 }
 
 .project-modal__close {
@@ -1026,6 +1046,39 @@ body.modal-open {
   background: rgba(255, 255, 255, 0.08);
   color: #fff;
   cursor: pointer;
+  z-index: 10;
+}
+
+/* Modal prev/next arrows */
+.project-modal__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  cursor: pointer;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  font-size: 26px;
+  font-weight: 900;
+}
+
+.project-modal__nav--prev {
+  left: 14px;
+}
+
+.project-modal__nav--next {
+  right: 14px;
+}
+
+.project-modal__nav:hover {
+  border-color: rgba(255, 46, 166, 0.6);
+  background: rgba(255, 46, 166, 0.22);
 }
 
 .project-modal__video {
@@ -1033,6 +1086,8 @@ body.modal-open {
   height: auto;
   display: block;
   background: #000;
+  position: relative;
+  z-index: 1;
 }
 
 .project-modal__meta {
@@ -1164,7 +1219,9 @@ body.modal-open {
 .js .reveal {
   opacity: 0;
   transform: translateY(16px);
-  transition: opacity 0.75s ease, transform 0.75s ease;
+  transition:
+    opacity 0.75s ease,
+    transform 0.75s ease;
 }
 
 .js .reveal.is-visible {
@@ -1178,4 +1235,16 @@ body.modal-open {
     transform: none !important;
     opacity: 1 !important;
   }
+}
+/* Allow clicking the whole project card even if it contains a YouTube iframe */
+.netflix__item .netflix__video {
+  pointer-events: none;
+}
+/* Fix YouTube iframe size inside modal */
+.project-modal__video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  display: block;
+  background: #000;
 }
