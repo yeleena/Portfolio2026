@@ -183,7 +183,7 @@
       const fig = items[index];
       if (!fig) return;
 
-      // ✅ NOW we read the iframe inside the card (YouTube)
+      //read the iframe inside the card (YouTube)
       const iframe = $("iframe", fig);
       const title = $(".cap__title", fig)?.textContent || "";
       const meta = $(".cap__meta", fig)?.textContent || "";
