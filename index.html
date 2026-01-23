@@ -125,9 +125,9 @@
           <div class="about__content">
             <div class="about__text">
               <p class="reveal">
-                Étudiante en <strong>informatique (BUT 2)</strong>, je me
-                spécialise dans le <strong>développement web</strong> et les
-                technologies <strong>cloud</strong>.
+                Étudiante en informatique (BUT 2), bilingue en anglais, je
+                recherche une alternance à partir de janvier. Je me spécialise
+                dans le développement web et les technologies cloud.
               </p>
 
               <p class="reveal">
@@ -155,7 +155,6 @@
               </div>
             </div>
 
-            <!-- Details BELOW (2 columns desktop) -->
             <div class="about__details">
               <div class="about__status reveal">
                 <h3>Disponibilité</h3>
@@ -515,7 +514,14 @@
             </div>
           </div>
 
-          <form class="form contact-form" id="contactForm" novalidate>
+          <!-- FORM CONNECTED TO FORMSPREE -->
+          <form
+            class="form contact-form"
+            id="contactForm"
+            action="https://formspree.io/f/xykejqzd"
+            method="POST"
+            novalidate
+          >
             <input name="name" placeholder="Nom" required />
             <input name="email" type="email" placeholder="Email" required />
             <textarea
@@ -524,6 +530,7 @@
               placeholder="Message"
               required
             ></textarea>
+
             <button class="btn btn--full" type="submit">Send</button>
             <p class="form-msg" id="formMsg" aria-live="polite"></p>
           </form>
@@ -560,7 +567,6 @@
           ✕
         </button>
 
-        <!-- Modal arrows -->
         <button
           class="project-modal__nav project-modal__nav--prev"
           type="button"
@@ -595,6 +601,40 @@
       </div>
     </div>
 
+    <!-- Your existing JS -->
     <script src="js/main.js"></script>
+
+    <!--  Formspree submit handler (keeps you on the page + shows status) -->
+    <script>
+      (function () {
+        const form = document.getElementById("contactForm");
+        const msg = document.getElementById("formMsg");
+        if (!form) return;
+
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          if (msg) msg.textContent = "Envoi en cours...";
+
+          try {
+            const res = await fetch(form.action, {
+              method: "POST",
+              body: new FormData(form),
+              headers: { Accept: "application/json" },
+            });
+
+            if (res.ok) {
+              form.reset();
+              if (msg) msg.textContent = "Message envoyé ! Merci 😊";
+            } else {
+              if (msg)
+                msg.textContent = " Erreur : message non envoyé. Réessaie.";
+            }
+          } catch (err) {
+            if (msg) msg.textContent = "Problème réseau. Réessaie plus tard.";
+          }
+        });
+      })();
+    </script>
   </body>
 </html>

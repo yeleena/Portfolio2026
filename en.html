@@ -123,9 +123,9 @@
           <div class="about__content">
             <div class="about__text">
               <p class="reveal">
-                I’m a <strong>Computer Science student (BUT 2)</strong>,
-                specializing in <strong>web development</strong> and
-                <strong>cloud</strong> technologies.
+                Second-year Computer Science student (BUT), bilingual in
+                English, seeking a work-study placement from January. I
+                specialise in web development and cloud technologies.
               </p>
 
               <p class="reveal">
@@ -511,7 +511,14 @@
             </div>
           </div>
 
-          <form class="form contact-form" id="contactForm" novalidate>
+          <!--  FORM CONNECTED TO FORMSPREE -->
+          <form
+            class="form contact-form"
+            id="contactForm"
+            action="https://formspree.io/f/xykejqzd"
+            method="POST"
+            novalidate
+          >
             <input name="name" placeholder="Name" required />
             <input name="email" type="email" placeholder="Email" required />
             <textarea
@@ -591,6 +598,40 @@
       </div>
     </div>
 
+    <!-- Your existing JS -->
     <script src="js/main.js"></script>
+
+    <!-- Formspree submit handler (stays on the page + shows status) -->
+    <script>
+      (function () {
+        const form = document.getElementById("contactForm");
+        const msg = document.getElementById("formMsg");
+        if (!form) return;
+
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          if (msg) msg.textContent = "Sending...";
+
+          try {
+            const res = await fetch(form.action, {
+              method: "POST",
+              body: new FormData(form),
+              headers: { Accept: "application/json" },
+            });
+
+            if (res.ok) {
+              form.reset();
+              if (msg) msg.textContent = "Message sent! Thank you 😊";
+            } else {
+              if (msg)
+                msg.textContent = "Error: message not sent. Please try again.";
+            }
+          } catch (err) {
+            if (msg) msg.textContent = " Network error. Please try later.";
+          }
+        });
+      })();
+    </script>
   </body>
 </html>

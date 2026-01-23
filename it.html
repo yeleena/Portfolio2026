@@ -123,9 +123,10 @@
           <div class="about__content">
             <div class="about__text">
               <p class="reveal">
-                Studentessa di <strong>informatica (BUT 2)</strong>, mi
-                specializzo nello <strong>sviluppo web</strong> e nelle
-                tecnologie <strong>cloud</strong>.
+                Studentessa di Informatica (BUT, secondo anno), bilingue in
+                inglese, cerco un percorso di alternanza a partire da gennaio.
+                Mi sto specializzando nello sviluppo web e nelle tecnologie
+                cloud.
               </p>
 
               <p class="reveal">
@@ -518,7 +519,14 @@
             </div>
           </div>
 
-          <form class="form contact-form" id="contactForm" novalidate>
+          <!--  FORM CONNECTED TO FORMSPREE -->
+          <form
+            class="form contact-form"
+            id="contactForm"
+            action="https://formspree.io/f/xykejqzd"
+            method="POST"
+            novalidate
+          >
             <input name="name" placeholder="Nome" required />
             <input name="email" type="email" placeholder="Email" required />
             <textarea
@@ -598,6 +606,40 @@
       </div>
     </div>
 
+    <!-- Your existing JS -->
     <script src="js/main.js"></script>
+
+    <!-- Formspree submit handler (rimani sulla pagina + messaggio di stato) -->
+    <script>
+      (function () {
+        const form = document.getElementById("contactForm");
+        const msg = document.getElementById("formMsg");
+        if (!form) return;
+
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          if (msg) msg.textContent = "Invio in corso...";
+
+          try {
+            const res = await fetch(form.action, {
+              method: "POST",
+              body: new FormData(form),
+              headers: { Accept: "application/json" },
+            });
+
+            if (res.ok) {
+              form.reset();
+              if (msg) msg.textContent = "Messaggio inviato! Grazie 😊";
+            } else {
+              if (msg)
+                msg.textContent = "Errore: messaggio non inviato. Riprova.";
+            }
+          } catch (err) {
+            if (msg) msg.textContent = " Errore di rete. Riprova più tardi.";
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
