@@ -618,38 +618,5 @@
 
     <!-- Your existing JS -->
     <script src="js/main.js"></script>
-
-    <!-- Formspree submit handler (stays on the page + shows status) -->
-    <script>
-      (function () {
-        const form = document.getElementById("contactForm");
-        const msg = document.getElementById("formMsg");
-        if (!form) return;
-
-        form.addEventListener("submit", async (e) => {
-          e.preventDefault();
-
-          if (msg) msg.textContent = "Sending...";
-
-          try {
-            const res = await fetch(form.action, {
-              method: "POST",
-              body: new FormData(form),
-              headers: { Accept: "application/json" },
-            });
-
-            if (res.ok) {
-              form.reset();
-              if (msg) msg.textContent = "Message sent! Thank you 😊";
-            } else {
-              if (msg)
-                msg.textContent = "Error: message not sent. Please try again.";
-            }
-          } catch (err) {
-            if (msg) msg.textContent = " Network error. Please try later.";
-          }
-        });
-      })();
-    </script>
   </body>
 </html>
