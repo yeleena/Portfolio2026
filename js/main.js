@@ -71,7 +71,7 @@
           if (e.isIntersecting) e.target.classList.add("is-visible");
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.15 },
     );
     revealEls.forEach((el) => io.observe(el));
   }
@@ -87,7 +87,7 @@
           if (e.isIntersecting) e.target.classList.add("is-animated");
         });
       },
-      { threshold: 0.25 }
+      { threshold: 0.25 },
     );
     skillLines.forEach((el) => ioSkills.observe(el));
   }
@@ -157,10 +157,10 @@
   }
 
   /* ============================
-     Project modal (video lightbox)
+     Project modal (YouTube iframe lightbox)
   ============================ */
   const modal = $("#projectModal");
-  const modalVideo = $("#projectModalVideo");
+  const modalVideo = $("#projectModalVideo"); // iframe in the modal
   const modalTitle = $("#projectModalTitle");
   const modalDesc = $("#projectModalDesc");
 
@@ -169,39 +169,75 @@
     modal.classList.remove("is-open");
     modal.setAttribute("aria-hidden", "true");
     document.body.classList.remove("modal-open");
+
+    // For YouTube iframe: just clear src to stop playback
     if (modalVideo) {
-      modalVideo.pause();
-      modalVideo.removeAttribute("src");
-      modalVideo.load();
+      modalVideo.setAttribute("src", "");
     }
   };
 
   if (modal && modalVideo && modalTitle && modalDesc && items.length) {
-    items.forEach((fig) => {
+    let currentIndex = 0;
+
+    const openAt = (index) => {
+      const fig = items[index];
+      if (!fig) return;
+
+      // ✅ NOW we read the iframe inside the card (YouTube)
+      const iframe = $("iframe", fig);
+      const title = $(".cap__title", fig)?.textContent || "";
+      const meta = $(".cap__meta", fig)?.textContent || "";
+
+      const src = iframe?.getAttribute("src") || "";
+      if (src) {
+        // Add autoplay when opening in modal
+        modalVideo.setAttribute(
+          "src",
+          src + (src.includes("?") ? "&" : "?") + "autoplay=1",
+        );
+      }
+
+      modalTitle.textContent = title;
+      modalDesc.textContent = meta;
+
+      modal.classList.add("is-open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("modal-open");
+    };
+
+    const go = (dir) => {
+      currentIndex = (currentIndex + dir + items.length) % items.length;
+      openAt(currentIndex);
+    };
+
+    items.forEach((fig, i) => {
       fig.addEventListener("click", () => {
-        const video = $("video", fig);
-        const title = $(".cap__title", fig)?.textContent || "";
-        const meta = $(".cap__meta", fig)?.textContent || "";
-
-        if (video?.getAttribute("src")) {
-          modalVideo.setAttribute("src", video.getAttribute("src"));
-        }
-
-        modalTitle.textContent = title;
-        modalDesc.textContent = meta;
-
-        modal.classList.add("is-open");
-        modal.setAttribute("aria-hidden", "false");
-        document.body.classList.add("modal-open");
-        modalVideo.play().catch(() => {});
+        currentIndex = i;
+        openAt(currentIndex);
       });
     });
 
+    // Close: X button + backdrop
     $$("[data-close]", modal).forEach((el) =>
-      el.addEventListener("click", closeModal)
+      el.addEventListener("click", closeModal),
     );
+
+    // Prev/Next buttons in modal (if present)
+    $("[data-modal-prev]", modal)?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      go(-1);
+    });
+    $("[data-modal-next]", modal)?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      go(1);
+    });
+
+    // Keyboard
     document.addEventListener("keydown", (e) => {
+      if (!modal.classList.contains("is-open")) return;
       if (e.key === "Escape") closeModal();
+      if (e.key === "ArrowLeft") go(-1);
+      if (e.key === "ArrowRight") go(1);
     });
   }
 
