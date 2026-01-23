@@ -183,7 +183,7 @@
       const fig = items[index];
       if (!fig) return;
 
-      //read the iframe inside the card (YouTube)
+      // read the iframe inside the card (YouTube)
       const iframe = $("iframe", fig);
       const title = $(".cap__title", fig)?.textContent || "";
       const meta = $(".cap__meta", fig)?.textContent || "";
@@ -238,30 +238,6 @@
       if (e.key === "Escape") closeModal();
       if (e.key === "ArrowLeft") go(-1);
       if (e.key === "ArrowRight") go(1);
-    });
-  }
-
-  /* ============================
-     Contact form (basic front validation)
-  ============================ */
-  const form = $("#contactForm");
-  const msg = $("#formMsg");
-  if (form && msg) {
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      const name = form.elements["name"]?.value?.trim();
-      const email = form.elements["email"]?.value?.trim();
-      const message = form.elements["message"]?.value?.trim();
-
-      if (!name || !email || !message) {
-        msg.textContent = "Please fill in all fields.";
-        return;
-      }
-
-      msg.textContent =
-        "Message ready to send (connect it to a backend later).";
-      form.reset();
     });
   }
 })();
