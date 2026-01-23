@@ -240,4 +240,59 @@
       if (e.key === "ArrowRight") go(1);
     });
   }
+
+  /* ============================
+     Contact form (Formspree)
+     - Shows real error messages (long-term fix)
+  ============================ */
+  const contactForm = $("#contactForm");
+  const formMsg = $("#formMsg");
+
+  if (contactForm) {
+    contactForm.addEventListener("submit", async (e) => {
+      // If you ever want the pure HTML POST + redirect, remove this handler.
+      e.preventDefault();
+
+      if (formMsg) formMsg.textContent = "Sending...";
+
+      try {
+        const res = await fetch(contactForm.action, {
+          method: "POST",
+          body: new FormData(contactForm),
+          headers: { Accept: "application/json" },
+        });
+
+        // Try to parse JSON if possible, otherwise fallback to text
+        const ct = res.headers.get("content-type") || "";
+        const payload = ct.includes("application/json")
+          ? await res.json()
+          : await res.text();
+
+        if (res.ok) {
+          contactForm.reset();
+          if (formMsg) formMsg.textContent = "Message sent! Thank you 😊";
+          return;
+        }
+
+        // Build the most helpful error message we can
+        let details = "";
+        if (payload && typeof payload === "object") {
+          if (payload.error) details = payload.error;
+          else if (Array.isArray(payload.errors) && payload.errors.length) {
+            details = payload.errors
+              .map((er) => er?.message || JSON.stringify(er))
+              .join(" • ");
+          } else {
+            details = JSON.stringify(payload);
+          }
+        } else {
+          details = String(payload || "");
+        }
+
+        if (formMsg) formMsg.textContent = `Error ${res.status}: ${details}`;
+      } catch (err) {
+        if (formMsg) formMsg.textContent = "Network error. Please try later.";
+      }
+    });
+  }
 })();
